@@ -1,0 +1,85 @@
+body {
+	display: grid;
+	grid-template-columns: 300px 1fr 2fr;
+	grid-template-rows: 1fr 3fr;
+	
+}
+header {
+	grid-column-start: 1;
+	grid-column-end: 4;
+	border-bottom: 1px solid gray;
+}
+aside {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2; 
+	grid-row-end: 4;
+	border-right: 1px solid gray;
+}
+div.card {
+	position: relative;
+	height: 200px;
+}
+div.card:hover {
+	cursor: pointer;
+	background-color: #eee;
+
+}
+div#status_ongoing {
+	background-color: green;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div#status_complete {
+	background-color: gray;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div#status_duepassed {
+	background-color: red;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div.dates_info p {
+	display: inline-block;
+}
+section {
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 5;
+
+}
+.nav-link:hover {
+	border-bottom: 1px solid black;
+}
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+.sidebar .nav-link:hover {
+    background: var(--bs-light);
+    color: var(--bs-primary);
+}
+.box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 300px;
+}
+.box div {
+	align-self: center;
+	width: 300px;
+}
