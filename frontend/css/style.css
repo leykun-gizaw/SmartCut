@@ -1,13 +1,14 @@
 body {
 	display: grid;
-	grid-template-columns: 300px 1fr 2fr;
-	grid-template-rows: 1fr 3fr;
-	
+	grid-template-columns: 355px 3fr;
+	grid-template-rows: 130px 600px;
 }
 header {
+	grid-row-start: 1;
+	grid-row-end: 2;
 	grid-column-start: 1;
 	grid-column-end: 4;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid #ccc;
 }
 .logo {
 	height: 30px;
@@ -19,8 +20,16 @@ aside {
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 2; 
-	grid-row-end: 4;
-	border-right: 1px solid gray;
+	overflow: auto;
+	margin: 0px;
+	padding: 0px;
+}
+.list-group {
+	margin: 0px;
+}
+section {
+	grid-column-start: 2;
+	grid-column-end: 4;
 }
 div.card {
 	position: relative;
@@ -60,13 +69,6 @@ div#status_duepassed {
 }
 div.dates_info p {
 	display: inline-block;
-}
-section {
-	grid-column-start: 2;
-	grid-column-end: 4;
-	grid-row-start: 2;
-	grid-row-end: 5;
-
 }
 .nav-link:hover {
 	border-bottom: 1px solid black;

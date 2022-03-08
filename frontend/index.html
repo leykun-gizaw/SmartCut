@@ -9,124 +9,206 @@
 	<title>Smart Cut</title>
 </head>
 <body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <img class="logo" src="assets/smartcut_logo.png"/>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#stock">Stock</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#cutlist">Cut List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#factors">Factors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#result">Result</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#scrap">Scrap</a>
-        </li>
-        
-      </ul>
-     <!-- <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
-    </div>
-  </div>
-  </nav> 
-  <hr/>
-  <div class="m-4">
-  <form>
-    <div class="row align-items-center g-3">
-     <div class="col-auto">
-     <label for="projectname">Project Name: </label>
-     <input type="text" name="projectname" placeholder="Project Name">
-    </div> 
-    <div class="col-auto">
-      <label for="customername">Customer Name: </label>
-      <input type="text" name="projectname" placeholder="Customer">
-    </div>
-    <div class="col-auto">
-      <label for="startdate">Start Date: </label>
-      <input type="Date" name="startdate">
-    </div> 
-    <div class="col-auto">
-      <label for="duedate">Due Date: </label>
-      <input type="Date" name="duedate">
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Add Project</button>
-    </div>
-    </div>
-  </form>
-  </div>    
-</header>
-<aside>
-<div>
-  <nav class="sidebar">
-    <div class="nav flex-column">
-      <div class="nav-item">
-        <div class="card">
-          <div id="status_ongoing">On Going</div>
-          <div class="card-body">
-            <h5 class="card-title">Ongoing Project</h5>
-            <p class="pr_name">project Name: Window manufacturing</p>  
-            <p class="cm_name">Customer Name: Leykun</p>
-            <div class="dates_info">
-              <p class="start_date">Started: 10/2/2022</p>
-              <p class="due_date">Due: 11/2/2022</p>
-            </div>        
-          </div>
-        </div>
-        <div class="card">
-          <div id="status_complete">Complete</div>
-          <div class="card-body">
-            <h5 class="card-title">Complete Project</h5>
-            <p class="pr_name">project Name: Window manufacturing</p>  
-            <p class="cm_name">Customer Name: Leykun</p>
-            <div class="dates_info">
-              <p class="start_date">Started: 10/2/2022</p>
-              <p class="due_date">Due: 11/2/2022</p>
-            </div>        
-          </div>
-        </div>
-        <div class="card">
-          <div id="status_duepassed">Due Passed</div>
-          <div class="card-body">
-            <h5 class="card-title">Ongoing Project</h5>
-            <p class="pr_name">project Name: Window manufacturing</p>  
-            <p class="cm_name">Customer Name: Leykun</p>
-            <div class="dates_info">
-              <p class="start_date">Started: 10/2/2022</p>
-              <p class="due_date">Due: 11/2/2022</p>
-            </div>        
-          </div>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <img class="logo" src="assets/smartcut_logo.png"/>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#stock">Stock</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cutlist">Cut List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#factors">Factors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#result">Result</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#scrap">Scrap</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="nav-item">
-        
-      </div>
-      <div class="nav-item">
-        
-      </div>
-      
+    </nav> 
+    <div class="m-4">
+      <form>
+        <div class="row align-items-center g-3">
+         <div class="col-auto">
+         <label for="projectname">Project Name: </label>
+         <input type="text" name="projectname" placeholder="Project Name">
+        </div> 
+        <div class="col-auto">
+          <label for="customername">Customer Name: </label>
+          <input type="text" name="projectname" placeholder="Customer">
+        </div>
+        <div class="col-auto">
+          <label for="startdate">Start Date: </label>
+          <input type="Date" name="startdate">
+        </div> 
+        <div class="col-auto">
+          <label for="duedate">Due Date: </label>
+          <input type="Date" name="duedate">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary">Add Project</button>
+        </div>
+        </div>
+      </form>
     </div>
-  </nav>
-</div>
+  </header>
 
-</aside>
-<section>
-  
-</section>
+  <aside>
+    <h5 style="text-align: center; margin: 10px 0px;">PROJECT HISTORY</h5>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT A</h5>
+          <span class="badge bg-success">On Going</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT B</h5>
+          <span class="badge bg-secondary">Complete</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER B</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT A</h5>
+          <span class="badge bg-danger">Due Passed!</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT A</h5>
+          <span class="badge bg-success">On Going</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT B</h5>
+          <span class="badge bg-secondary">Complete</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER B</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">PROJECT A</h5>
+          <span class="badge bg-danger">Due Passed!</span>
+        </div>
+        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
+        <h6 class="fw-light">----------------------------------------------------------------------------</h6>
+        <p class="mb-1">Some placeholder content in a paragraph.</p>
+        <div class="row gx-3" style="text-align: center">
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Started: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border rounded-3 fs-6 fw-light">
+              <small>Due: </small>
+              <small>22/22/2222</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </aside>
+
+  <section>
+  </section>
 </body>
 </html>
