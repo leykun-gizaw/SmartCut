@@ -9,6 +9,12 @@ header {
 	grid-column-end: 4;
 	border-bottom: 1px solid gray;
 }
+.logo {
+	height: 30px;
+}
+div#navbarSupportedContent {
+	margin-left: 50px;
+}
 aside {
 	grid-column-start: 1;
 	grid-column-end: 2;
