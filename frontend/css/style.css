@@ -1,6 +1,6 @@
 body {
 	display: grid;
-	grid-template-columns: 355px 3fr;
+	grid-template-columns: 330px 3fr;
 	grid-template-rows: 130px 600px;
 }
 header {
