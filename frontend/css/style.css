@@ -1,0 +1,103 @@
+body {
+	display: grid;
+	grid-template-columns: 330px 3fr;
+	grid-template-rows: 130px 600px;
+}
+header {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	border-bottom: 1px solid #ccc;
+}
+.logo {
+	height: 30px;
+}
+div#navbarSupportedContent {
+	margin-left: 50px;
+}
+aside {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 2; 
+	overflow: auto;
+	margin: 0px;
+	padding: 0px;
+}
+.list-group {
+	margin: 0px;
+}
+section {
+	grid-column-start: 2;
+	grid-column-end: 4;
+}
+div.card {
+	position: relative;
+	height: 200px;
+}
+div.card:hover {
+	cursor: pointer;
+	background-color: #eee;
+
+}
+div#status_ongoing {
+	background-color: green;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div#status_complete {
+	background-color: gray;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div#status_duepassed {
+	background-color: red;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: fit-content;
+	color: white;
+	padding: 3px;
+}
+div.dates_info p {
+	display: inline-block;
+}
+.nav-link:hover {
+	border-bottom: 1px solid black;
+}
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+.sidebar .nav-link:hover {
+    background: var(--bs-light);
+    color: var(--bs-primary);
+}
+.box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 300px;
+}
+.box div {
+	align-self: center;
+	width: 300px;
+}
+input.stocktable {
+	resize: horizontal;
+	width: 50px;
+}
+input.stocktable:active {
+	width: 50px;
+}
+input.stocktable:focus {
+	min-width: 80px
+}
