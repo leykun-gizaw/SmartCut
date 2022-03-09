@@ -209,6 +209,71 @@
   </aside>
 
   <section>
+    <table class="table caption-top">
+<h4 style="margin-left: 10px; margin-top: 20px; margin-bottom: 10px;">Stock Table</h4>  
+<hr>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">No_</th>
+      <th scope="col">Steel Type</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Length</th>
+      <th scope="col">Cost per Unit Length</th>
+      <th scope="col">Manage Record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><span>Rectangular Holo Section</span></td>
+      <td>
+        <input class="stocktable" type="number" name="quantity" size="1">
+      </td>
+      <td>
+        <input class="stocktable"  type="number" name="Length">
+        <select class="form-select" aria-label="stckLength" style="display: inline; width: auto;">
+          <option selected>cm</option>
+          <option value="1">mm</option>
+          <option value="2">m</option>
+        </select>
+      </td>
+      <td>
+        <input class="stocktable" type="number" name="costperunitlength">
+        <select class="form-select" aria-label="stck" style="display: inline; width: auto;">
+          <option selected>ETB</option>
+          <option value="1">USD</option>
+          <option value="2">EURO</option>
+          <option value="2">POUND</option>
+        </select>
+      </td>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Square Holo Section</td>
+      <td>
+        <input class="stocktable" type="number" name="quantity" size="1">
+      </td>
+      <td>
+        <input class="stocktable"  type="number" name="Length">
+        <select class="form-select" aria-label="stckLength" style="display: inline; width: auto;">
+          <option selected>cm</option>
+          <option value="1">mm</option>
+          <option value="2">m</option>
+        </select>
+      </td>
+      <td>
+        <input class="stocktable" type="number" name="costperunitlength">
+        <select class="form-select" aria-label="stck" style="display: inline; width: auto;">
+          <option selected>ETB</option>
+          <option value="1">USD</option>
+          <option value="2">EURO</option>
+          <option value="2">POUND</option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
   </section>
 </body>
 </html>

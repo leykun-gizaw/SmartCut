@@ -91,3 +91,13 @@ div.dates_info p {
 	align-self: center;
 	width: 300px;
 }
+input.stocktable {
+	resize: horizontal;
+	width: 50px;
+}
+input.stocktable:active {
+	width: 50px;
+}
+input.stocktable:focus {
+	min-width: 80px
+}
