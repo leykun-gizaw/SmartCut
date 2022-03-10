@@ -1,3 +1,4 @@
+
 body {
 	display: grid;
 	grid-template-columns: 330px 3fr;
@@ -91,14 +92,38 @@ div.dates_info p {
 	align-self: center;
 	width: 300px;
 }
-input.stocktable {
-	resize: horizontal;
-	width: 50px;
+section {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 80px 1fr 80px;
 }
-input.stocktable:active {
-	width: 50px;
+div.section_top {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2
+	border: 1px solid gray;
 }
-input.stocktable:focus {
-	min-width: 80px
+div.section_middle{
+	grid-column-start:1;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	border:1px solid gray;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	padding: 20px;
+	grid-gap: 20px;
+ 
 }
+div.section_bottom {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	border-right:1px solid gray;
+}
+
+
+
 
