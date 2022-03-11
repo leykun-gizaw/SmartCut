@@ -1,4 +1,5 @@
 body {
+  position: relative;
   margin: 0px;
   padding: 0px;
   height: 100vh;
@@ -60,4 +61,35 @@ table td {
 th.small-width {
   width: 0px;
   text-align: center;
+}
+
+/*CutList Section styles*/
+#sections {
+	overflow-y: scroll;
+	padding: 20px;
+}
+#cutlist {
+	display: none;
+	grid-template-rows: min-content 1fr min-content;
+	grid-row-gap: 10px;
+	height: 100%;
+}
+.section_top, .section_middle, .section_bottom {
+	border: 1px solid #000;
+	display: grid;
+}
+.section_middle {
+	overflow-y: scroll;
+	padding: 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 50px;
+	justify-items: center;
+	margin: 0px 100px;
+}
+#results {
+	display: none;
+	height: 100%;
+}
+.importsTable {
+	width: 90px;
 }
