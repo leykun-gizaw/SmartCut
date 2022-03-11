@@ -1,52 +1,63 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	display: grid;
-	grid-template-columns: 330px 3fr;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 330px 3fr;
+  grid-template-rows: min-content auto;
+  font-size: 13px;
 }
 header {
-	grid-row-start: 1;
-	grid-row-end: 2;
-	grid-column-start: 1;
-	grid-column-end: 4;
-	border-bottom: 1px solid #ccc;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: fit-content;
 }
 .logo {
-	height: 30px;
-}
-div#navbarSupportedContent {
-	margin-left: 50px;
+  height: 30px;
 }
 aside {
-	grid-column-start: 1;
-	grid-column-end: 2;
-	grid-row-start: 2; 
-	overflow: auto;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  overflow-y: scroll;
+  border-right: 1px solid #eee;
+  position: relative;
+}
+.project_history {
+  text-align: center;
+  position: sticky;
+  height: 50px;
+  z-index: 3;
+  padding-top: 10px;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  top: 0px;
 }
 .list-group-item > * {
-        pointer-events: none;
-}
-section {
-	grid-column-start: 2;
-	grid-column-end: 4;
-	padding: 10px;
+  pointer-events: none;
 }
 div.dates_info p {
-	display: inline-block;
+  display: inline-block;
 }
 .nav_link {
-	border-bottom: 1px solid grey;
+  border-bottom: 1px solid grey;
 }
 .nav-link:hover {
-	border-bottom-color: black;
+  border-bottom-color: black;
 }
 .sidebar .nav-link {
-    font-weight: 500;
+  font-weight: 500;
 }
 table input {
-	text-align: center;
+  text-align: center;
 }
-table th, table td {
-	vertical-align: middle;
+table th,
+table td {
+  vertical-align: middle;
+  width: 100px;
 }
-
+th.small-width {
+  width: 0px;
+  text-align: center;
+}

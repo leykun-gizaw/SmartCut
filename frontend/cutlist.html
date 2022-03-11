@@ -1,444 +1,144 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style_cutlist.css">
-	<script src="css/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-	<title>Smart Cut</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style_cutlist.css">
+  <link rel="stylesheet" type="text/css" href="fa_6.0.0/css/all.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="css/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+  <title>Smart Cut</title>
 </head>
-<body>
+
+<body class="lh-sm">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <img class="logo" src="assets/smartcut_logo.png"/>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#stock">Stock</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#cutlist">Cut List</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#factors">Factors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#result">Result</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#scrap">Scrap</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-dark bg-dark">
+      <img class="logo" src="assets/smartcut_logo.png" />
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="./index.html">Stock</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Cut List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Factors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Result</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Scrap</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <span class="text-primary">ADD PROJECT</span>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <form class="form-floating">
+                  <input type="text" class="form-control" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Project Name</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating">
+                  <input type="text" class="form-control" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Customer Name</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating">
+                  <input type="Date" class="form-control" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Start Date</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating">
+                  <input type="Date" class="form-control" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Due Date</label>
+                </form>
+              </div>
+              <div class="col" style="position: relative;">
+                <button id="addProject" class="btn btn-primary"
+                  style="position: absolute; top: 50%; transform: translateY(-50%)">
+                  <span>Add Project</span> <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav> 
-    <div class="m-4">
-      <form>
-        <div class="row align-items-center g-3">
-         <div class="col-auto">
-         <label for="projectname">Project Name: </label>
-         <input type="text" name="projectname" placeholder="Project Name">
-        </div> 
-        <div class="col-auto">
-          <label for="customername">Customer Name: </label>
-          <input type="text" name="projectname" placeholder="Customer">
-        </div>
-        <div class="col-auto">
-          <label for="startdate">Start Date: </label>
-          <input type="Date" name="startdate">
-        </div> 
-        <div class="col-auto">
-          <label for="duedate">Due Date: </label>
-          <input type="Date" name="duedate">
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary">Add Project</button>
-        </div>
-        </div>
-      </form>
     </div>
   </header>
-
   <aside>
-    <h5 style="text-align: center; margin: 10px 0px;">PROJECT HISTORY</h5>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT A</h5>
-          <span class="badge bg-success">On Going</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT B</h5>
-          <span class="badge bg-secondary">Complete</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER B</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT A</h5>
-          <span class="badge bg-danger">Due Passed!</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT A</h5>
-          <span class="badge bg-success">On Going</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT B</h5>
-          <span class="badge bg-secondary">Complete</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER B</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">PROJECT A</h5>
-          <span class="badge bg-danger">Due Passed!</span>
-        </div>
-        <h6 class="mb-1">CUSTOMER: CUSTOMER A</h6>
-        <h6 class="fw-light">--------------------------------------------------------------</h6>
-        <p class="mb-1">Some placeholder content in a paragraph.</p>
-        <div class="row gx-3" style="text-align: center">
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Started: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-          <div class="col">
-            <div class="border rounded-3 fs-6 fw-light">
-              <small>Due: </small>
-              <small>22/22/2222</small>
-            </div>
-          </div>
-        </div>
-      </a>
+    <h5 class="project_history">PROJECT HISTORY</h5>
+    <div id="proj-links" class="list-group">
     </div>
   </aside>
-
-  <section>
-       <div class="section_top">
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 20px; margin-right: 20px;">
-          <button type="button" class="btn btn-outline-primary">Import CSV</button>
-          
-          </div>
+  <section style="overflow-y: scroll;">
+    <div class="section_top">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 20px; margin-right: 20px;">
+        <div class="input-group mb-3" style="width: 250px;">
+          <input type="file" class="form-control" id="inputGroupFile02">
         </div>
-       <div class="section_middle">
-         <div class="c1_r1">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Rectangular Holo Section</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length(cm)</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-              </tr>
+      </div>
+    </div>
+    <div class="section_middle text-light">
+      <div class="c1_r1" style="position: relative; padding-top: 30px; height: fit-content;">
+        <button class="btn btn-danger btn-sm hidden-table-delete" style="position: absolute; top: 0px; right: 0px">
+          <i class="fas fa-window-close fa-sm"></i>
+        </button>
+        <table class="table table-sm table-bordered" style="text-align: center;">
+          <thead>
+            <tr>
+              <th colspan="3">Rectangular Holo Section</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No</td>
+              <td>Quantity</td>
+              <td>Length(cm)</td>
+            </tr>
+            <tr>
+              <td scope="row">1</td>
+              <td><input type="number" name="" style="width: 80px"></td>
+              <td><input type="number" name="" style="width: 80px"></td>
+            </tr>
+            <tr>
               <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-         <div class="c2_r1">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Square Holo Section</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-         <div class="c3_r1">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Round Bar</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-         <div class="c4_r1">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">LTZ</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-         <div class="c5_r2">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Angle Iron</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-          <div class="c5_r3">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">C Channel</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-          <div class="c5_r4">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">I Section</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-          <div class="c6_r1">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Circular Holo Section</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-          <div class="c6_r2">
-           <table class="table table-sm table-bordered" style="text-align: center;">
-            <thead>
-              <tr>
-                <th colspan="3">Rectangular Holo Section</th>
-              </tr>
-            </thead>         
-            <tbody>
-              <tr>
-                <td>No</td>
-                <td>Quantity</td>
-                <td>Length</td>
-              </tr>
-              <tr>
-                <td scope="row">1</td>
-                <td><input type="" name="" style="width: 80px"></td>
-                <td><input type="" name="" style="width: 80px"></td>
-              </tr>
-              <td scope="row">2</td>
-                <td><input type="number" name="" style="width: 80px"></td>
-                <td><input type="number" name="" style="width: 80px"></td>
-            </tbody>
-           </table>
-         </div>
-       </div>
-       <div class="section_bottom">
-         <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 20px;">
-          <button type="button" class="btn btn-outline-primary" >Add Table</button>
-          <button type="button" class="btn btn-danger" style="margin-right: 10px;">Solve</button>
-          </div>
-       </div>
+              <td><input type="number" name="" style="width: 80px"></td>
+              <td><input type="number" name="" style="width: 80px"></td>
+            </tr>
+            <tr>
+              <td scope="row">3</td>
+              <td><input type="number" name="" style="width: 80px"></td>
+              <td><input type="number" name="" style="width: 80px"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="section_bottom" style="position: relative;">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">
+        <button type="button" class="btn btn-outline-primary">Add Table</button>
+        <button type="button" class="btn btn-outline-danger">Solve</button>
+      </div>
+    </div>
   </section>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
