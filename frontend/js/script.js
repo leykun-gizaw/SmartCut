@@ -1,13 +1,16 @@
 const stockTable = document.querySelector("#stockTable");
 
+/* Remove Stock table records when delete button is clicked */
 function rowRemove() {
   event.target.parentNode.parentNode.remove();
 }
 
+/* Remove Cut List table when X button is clicked */
 function removeTable() {
   event.target.parentNode.remove();
 }
 
+/* Highlight Projects on aside when clicked on */
 function asideHighlight() {
   const projectLinks = document.querySelector("#proj-links");
   for (let i = 0; i < projectLinks.childElementCount; i++) {
@@ -16,6 +19,7 @@ function asideHighlight() {
   event.target.classList.add("active");
 }
 
+/* Make tabs interactive and change display property of different sections */
 function changeSection() {
   const tabsUL = event.target.parentNode.parentNode;
   if (!event.target.classList.contains('active')) {
@@ -43,6 +47,7 @@ function changeSection() {
   }
 }
 
+/* Add project to aside Element when 'Add Project' button is clicked */
 const addProject = document.querySelector("#addProject");
 addProject.addEventListener("click", () => {
   const collapseOne = document.querySelector("#collapseOne");
@@ -67,45 +72,58 @@ addProject.addEventListener("click", () => {
   }
 });
 
+/* Handle the click event on the button located below stock table */
 const addStockRow = document.querySelector("#addStockRow");
 addStockRow.addEventListener("click", () => {
   const stockTable = document.querySelector("#stockTable");
-  console.log(stockTable.lastElementChild);
   stockTable.lastElementChild.insertAdjacentHTML(
     "afterend",
     '<tr><th scope="row" class="small-width">3</th><td><input type="number" class="form-control" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><input type="number" class="form-control" placeholder="000" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style="width: 60px"><option selected>cm</option><option value="1">mm</option><option value="2">m</option></select></div></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style = "width: 60px;"><option selected>ETB</option><option value="1">€</option><option value="2">$</option></select></div></td><td style="text-align: center"><button type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete Record <i class="fas fa-trash-alt"></i></button></td></tr>'
   );
 });
 
-const addTable = document.querySelector('#addTable');
-addTable.addEventListener('click', () => {
+/*Cut List table adder function*/
+function addTableFunc() {
   const tableSection = document.querySelector('#midSection');
-
   if (!tableSection.lastElementChild) {
     tableSection.innerHTML += `<div class="c1_r1"><button class="btn btn-danger btn-sm hidden-table-delete"  onclick="removeTable();"><i class="fas fa-plus"></i></button><table class="table table-sm table-hover table-bordered"><thead><tr><th colspan="3"><input type="text" placeholder="Steel Type"></th></tr></thead><tbody><tr><td>#</td><td>Quantity</td><td>Length(cm)</td></tr></tbody></table></div>`;
   } else {
-    console.log(tableSection.lastElementChild);
     tableSection.lastElementChild.insertAdjacentHTML(
       'afterend',
       `<div class="c1_r1"><button class="btn btn-danger btn-sm hidden-table-delete"  onclick="removeTable();"><i class="fas fa-plus"></i></button><table class="table table-sm table-hover table-bordered"><thead><tr><th colspan="3"><input type="text" placeholder="Steel Type"></th></tr></thead><tbody><tr><td>#</td><td>Quantity</td><td>Length(cm)</td></tr></tbody></table></div>`
     );
   }
+  return tableSection.lastElementChild;
+}
+
+/* Insert Row with length and quantity data in cutlist tables */
+function addCutListTableRow(table, len, qty) {
+  for (let i = 0; i < len.length; i++) {
+    table.lastElementChild.insertAdjacentHTML(
+      "afterend",
+      `<tr><td>1</td><td><input type="text" style="width: 80px;" value="${qty[i]}"></td><td><input type="text" style="width: 80px;;" value="${len[i]}"</td></tr>`
+    );
+  }
+}
+/* Handle the click event on the button 'Add Table' in cutlist section */
+const addTable = document.querySelector('#addTable');
+addTable.addEventListener('click', () => {
+  addTableFunc();
 });
 
+/* Table enumeration step and event handler on click of 'tabulate' button */
 const tabulate = document.querySelector('#inputGroupFileAddon04');
 const fileInput = document.querySelector('#inputGroupFile04');
-
 tabulate.addEventListener('click', (e) => {
   const inputFile = fileInput.files[0];
   const reader = new FileReader();
   reader.readAsText(inputFile);
-
   function csvToArray(str, delimiter = ',') {
     const data = {};
     const rows = str.slice(str.indexOf('\n') + 1).split('\n');
     rows.pop();
     for (let i = 0; i < rows.length; i++) {
-      rows[i] = rows[i].split(',');
+      rows[i] = rows[i].split(delimiter);
       data[rows[i][2]] = {
         Lengths: [],
         Quantity: []
@@ -121,10 +139,22 @@ tabulate.addEventListener('click', (e) => {
     }
     return data;
   }
-
   reader.onload = (e) => {
-    console.log(
-      csvToArray(e.target.result)
-    );
+    const data = csvToArray(e.target.result);
+    for (let i = 0; i < Object.keys(data).length; i++) {
+      const table = addTableFunc();
+      table
+        .lastElementChild
+        .firstElementChild
+        .firstElementChild
+        .firstElementChild
+        .firstElementChild
+        .value = Object.keys(data)[i];
+      addCutListTableRow(
+        table.lastElementChild.lastElementChild,
+        data[Object.keys(data)[i]].Lengths,
+        data[Object.keys(data)[i]].Quantity
+      );
+    }
   };
 });
