@@ -94,12 +94,12 @@ div.dates_info p {
 }
 section {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 2fr 1fr 2fr;
 	grid-template-rows: 150px 450px;
 }
 div.section_top {
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 4;
 	border: 1px solid gray;
 	display: grid;
 	grid-template-columns:1fr 1fr;
@@ -130,7 +130,7 @@ div.section_bottom_left {
 }
 div.section_bottom_right {
 	grid-column-start: 2;
-	grid-column-end: 3;
+	grid-column-end: 4;
 	border-right:1px solid gray;
 	text-align: center;
 }
