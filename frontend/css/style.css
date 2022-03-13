@@ -122,6 +122,7 @@ th.small-width {
 /*---------------------------------------------------------*/
 /* results section styles */
 #results {
+	display: none;
         grid-template-rows: min-content 1fr;
         grid-gap: 10px;
         height: 100%;
@@ -141,10 +142,32 @@ th.small-width {
 }
 #results .top-detail-row .summary-export-column {
         display: grid;
-        grid-template-columns: 1fr max-content;
+        grid-template-columns: 1fr 1fr 1fr max-content;
         grid-gap: 10px;
         align-items: center;
+        justify-items: center;
 }
+#results .top-detail-row .summary-export-column table {
+        grid-column-start: 1;
+        grid-column-end: 3;
+}
+#results .top-detail-row .summary-export-column button {
+        width: fit-content;
+}
+
+.steel-name-container {
+        display: flex;
+        align-items: center;
+}
+.steel-name-container .line {
+        height: 1px;
+        flex: 1;
+        background-color: #bbb;
+}
+.steel-name-container h5 {
+        padding: 0 10px;
+}
+
 #results .bottom-detail-row {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -164,6 +187,12 @@ th.small-width {
         overflow-y: scroll;
 }
 #results .bottom-detail-row .layout-patterns {
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        overflow-y: auto;
+        height: 100%;
+}
+#results .bottom-detail-row .layout-patterns .layouts {
         overflow-y: scroll;
 }
 /*---------------------------------------------------------*/

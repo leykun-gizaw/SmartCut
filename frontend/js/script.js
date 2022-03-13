@@ -156,5 +156,6 @@ tabulate.addEventListener('click', (e) => {
         data[Object.keys(data)[i]].Quantity
       );
     }
+    console.log(data);
   };
 });
