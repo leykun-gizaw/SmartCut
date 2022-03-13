@@ -81,131 +81,64 @@
     </div>
   </header>
   <aside>
-    <h5 class="project_history">PROJECT HISTORY</h5>
+    <h5 class="project_history fw-light">PROJECT HISTORY</h5>
     <div id="proj-links" class="list-group">
     </div>
   </aside>
   <div id="sections">
     <!----------------------STOCK SECTION-------------------------->
     <section id="stock">
-      <table class="table table-sm table-hover">
-        <caption class="caption-top">Stock Records</caption>
-        <thead class="table-light">
-          <tr style="text-align: center">
-            <th scope="col" class="small-width">No_</th>
-            <th scope="col">Steel Type</th>
-            <th scope="col">Quantity</th>
-
-            <th scope="col">Length</th>
-            <th scope="col">Cost per Unit Length</th>
-            <th scope="col">Manage Record</th>
-          </tr>
-        </thead>
-        <tbody id="stockTable">
-          <tr>
-            <th scope="row" class="small-width">1</th>
-            <td>Rectangular Holo Section</td>
-            <td>
-              <input type="number" class="form-control" placeholder="000" aria-label="Recipient's username"
-                aria-describedby="basic-addon2">
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px; height: 30px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>cm</option>
-                  <option value="1">mm</option>
-                  <option value="2">m</option>
-                </select>
-              </div>
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>ETB</option>
-                  <option value="1">€</option>
-                  <option value="2">$</option>
-                </select>
-              </div>
-            </td>
-            <td style="text-align: center">
-              <button id="editBtn" type="button" class="btn btn-outline-primary fw-bold btn-sm">Save <i class="fas fa-save"></i></button>
-              <button id="deleteBtn" type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete <i class="fas fa-trash-alt"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row" class="small-width">2</th>
-            <td>Square Holo Section</td>
-            <td>
-              <input type="number" class="form-control" placeholder="000" aria-label="Recipient's username"
-                aria-describedby="basic-addon2">
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>cm</option>
-                  <option value="1">mm</option>
-                  <option value="2">m</option>
-                </select>
-              </div>
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>ETB</option>
-                  <option value="1">€</option>
-                  <option value="2">$</option>
-                </select>
-              </div>
-            </td>
-            <td style="text-align: center">
-              <button id="editBtn" type="button" class="btn btn-outline-primary fw-bold btn-sm">Save <i class="fas fa-save"></i></button>
-              <button id="deleteBtn" type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete <i class="fas fa-trash-alt"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row" class="small-width">3</th>
-            <td>Round Bar</td>
-            <td>
-              <input type="number" class="form-control" placeholder="000" aria-label="Recipient's username"
-                aria-describedby="basic-addon2">
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>cm</option>
-                  <option value="1">mm</option>
-                  <option value="2">m</option>
-                </select>
-              </div>
-            </td>
-            <td>
-              <div class="input-group" style="margin: auto;">
-                <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2" style="width: 80px;">
-                <select class="table-select form-select" aria-label="stckLength">
-                  <option selected>ETB</option>
-                  <option value="1">€</option>
-                  <option value="2">$</option>
-                </select>
-              </div>
-            </td>
-            <td style="text-align: center">
-              <button id="editBtn" type="button" class="btn btn-outline-primary fw-bold btn-sm">Save <i class="fas fa-save"></i></button>
-              <button id="deleteBtn" type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete <i class="fas fa-trash-alt"></i></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="stock-container">
+        <table class="table table-sm table-hover">
+          <caption class="caption-top">Stock Records</caption>
+          <thead class="table-light">
+            <tr style="text-align: center">
+              <th scope="col" class="small-width">No_</th>
+              <th scope="col">Steel Type</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Length</th>
+              <th scope="col">Cost per Unit Length</th>
+              <th scope="col">Manage Record</th>
+            </tr>
+          </thead>
+          <tbody id="stockTable">
+            <tr>
+              <th scope="row" class="small-width">1</th>
+              <td>Rectangular Holo Section</td>
+              <td>
+                <input type="number" class="form-control" placeholder="000" aria-label="Recipient's username"
+                  aria-describedby="basic-addon2">
+              </td>
+              <td>
+                <div class="input-group" style="margin: auto;">
+                  <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2" style="width: 80px; height: 30px;">
+                  <select class="table-select form-select" aria-label="stckLength">
+                    <option selected>cm</option>
+                    <option value="1">mm</option>
+                    <option value="2">m</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div class="input-group" style="margin: auto;">
+                  <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2" style="width: 80px;">
+                  <select class="table-select form-select" aria-label="stckLength">
+                    <option selected>ETB</option>
+                    <option value="1">€</option>
+                    <option value="2">$</option>
+                  </select>
+                </div>
+              </td>
+              <td style="text-align: center">
+                <button id="editBtn" type="button" class="btn btn-outline-primary fw-bold btn-sm">Save <i class="fas fa-save"></i></button>
+                <button id="deleteBtn" type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete <i class="fas fa-trash-alt"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <a id="addStockRow" class="btn btn-primary">
         <i class="fas fa-plus fa-sm"></i>
       </a>
@@ -231,12 +164,11 @@
     <!--*******************END OF CUT LIST SECTION**********************-->
     <!----------------------RESULTS SECTION--------------------------->
     <section id="results">
-       <div class="section_top">
-        <div class="section_top_left">
-         <h4 style="margin-left: 10px; margin-top: 20px; margin-bottom: 10px; width: 100px;">Result</h4>
-        <div class="nav_results_div">
+      <div class="top-detail-row">
+        <div class="section-title-pagination">
+          <h4 class="fw-light">Result</h4>
           <nav class="nav_results" aria-label="navigate results">
-           <ul class="pagination pagination-lg">
+            <ul class="pagination">
               <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
@@ -251,12 +183,10 @@
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
-           </ul>
+            </ul>
           </nav>
-        </div> 
         </div>
-       <div class="section_top_right">
-         <div class="table_results_div">
+        <div class="summary-export-column">
           <table class="table table-sm">
             <tbody>
               <tr>
@@ -273,43 +203,54 @@
               </tr>
             </tbody>
           </table>
+          <button type="button" class="btn btn-outline-success btn-sm">Export Results</button>
         </div>
-        <div class="section_bottom_right_button"><button type="button" class="btn btn-outline-secondary" style="position: absolute; top: 50%; transform: translateY(-50%);">Export Results</button></div>
-       </div>  
-       </div>
-       <div class="section_bottom_left">
-         <div><h4 style="margin-left: 10px;  float: left;">Rectangular Holo Section</h4></div>
-         <table class="table table-bordered">
-           <thead class="table-dark">
-             <tr>
-               <th scope="col">Stock #</th>
-               <th scope="col">Cut #</th>
-               <th scope="col">LENGTH</th>
-               <th scope="col">COUNT</th>
-               <th scope="col">ID</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-             <td scope="row"><span>1</span></td>
-             <td scope="row"><span>2</span></td>
-             <td scope="row"><span>1125 cm</span></td>
-             <td scope="row"><span>4</span></td>
-             <td scope="row" style="background-color: #FFC0CB"></td>
-            </tr>
-           </tbody>
-         </table>
-       </div>
-       <div class="section_bottom_right">
-         <hr>
-         <h4>Layouts</h4>
-         <div style="border: 1px solid black;">
-            <div style="width: 10%; height: 40px; float: left; border-style:double; margin-left: 10px;">
-            </div>
-            <div style="border:1px solid black; width: 80%; height: 40px; float: left; margin-left: 10px;">
-            </div>
+      </div>
+      <div class="bottom-detail-row">
+        <div class="steel-table-div">
+          <h5 class="fw-light">Rectangular Holo Section</h5>
+          <div class="layout-table">
+            <table class="table table-bordered text-center">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Stock #</th>
+                  <th scope="col">Cut #</th>
+                  <th scope="col">Length</th>
+                  <th scope="col">Count</th>
+                  <th scope="col">ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row"><span>1</span></td>
+                    <td scope="row"><span>2</span></td>
+                    <td scope="row"><span>1125 cm</span></td>
+                    <td scope="row"><span>4</span></td>
+                    <td scope="row"> <span class="cut-color-id"></span></td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
         </div>
-       </div>
+        <div class="layout-patterns">
+          <h5 class="fw-light">Layouts</h5>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+        </div>
+      </div>
     </section>
     <!--*******************END OF RESULTS SECTION**********************-->
   </div>

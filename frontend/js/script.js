@@ -32,7 +32,7 @@ function changeSection() {
     event.target.classList.add('active');
     const sections = document.querySelector('#sections');
     if (event.target.innerText === 'Stock') {
-      sections.children[0].style.display = 'block';
+      sections.children[0].style.display = 'grid';
       sections.children[1].style.display = 'none';
       sections.children[2].style.display = 'none';
     } else if (event.target.innerText === 'Cut List') {
@@ -42,7 +42,7 @@ function changeSection() {
     } else if (event.target.innerText === 'Result') {
       sections.children[0].style.display = 'none';
       sections.children[1].style.display = 'none';
-      sections.children[2].style.display = 'block';
+      sections.children[2].style.display = 'grid';
     }
   }
 }

@@ -72,6 +72,17 @@ th.small-width {
 }
 
 /* Stock Table styles */
+#stock {
+	display: grid;
+	grid-template-rows: 1fr min-content;
+	grid-row-gap: 10px;
+	height: 100%;
+}
+.stock-container {
+	overflow-y: scroll;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+}
 #stockTable select {
 	width: 35px;
 	height: 30px;
@@ -81,6 +92,7 @@ th.small-width {
 	height: 30px;
 }
 
+/*---------------------------------------------------------*/
 /*CutList Section styles*/
 #sections {
 	overflow-y: auto;
@@ -107,14 +119,57 @@ th.small-width {
 	border-top: 1px solid #eee;
 	padding-top: 30px;
 }
+/*---------------------------------------------------------*/
+/* results section styles */
 #results {
-	display: none;
-	height: 100%;
+        grid-template-rows: min-content 1fr;
+        grid-gap: 10px;
+        height: 100%;
 }
+#results .top-detail-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 10px;
+}
+#results .top-detail-row .section-title-pagination {
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        align-items: end;
+}
+#results .top-detail-row .section-title-pagination nav {
+        margin: 0 auto;
+}
+#results .top-detail-row .summary-export-column {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        grid-gap: 10px;
+        align-items: center;
+}
+#results .bottom-detail-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 10px;
+        overflow-y: auto;
+}
+#results .bottom-detail-row .steel-table-div {
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        overflow-y: auto;
+        height: 100%;
+}
+#results .bottom-detail-row .steel-table-div h5 {
+        text-align: center;
+}
+#results .bottom-detail-row .steel-table-div .layout-table {
+        overflow-y: scroll;
+}
+#results .bottom-detail-row .layout-patterns {
+        overflow-y: scroll;
+}
+/*---------------------------------------------------------*/
 .c1_r1 {
 	position: relative;
 	text-align: center;
-	width: 100%;
 }
 .c1_r1 table {
 	margin: 0px;
