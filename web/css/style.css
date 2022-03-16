@@ -4,7 +4,7 @@ body {
   padding: 0px;
   height: 100vh;
   display: grid;
-  grid-template-columns: 330px 3fr;
+  grid-template-columns: 320px 3fr;
   grid-template-rows: min-content auto;
   font-size: 13px;
 }
@@ -50,15 +50,15 @@ div.dates_info p {
 .sidebar .nav-link {
   font-weight: 500;
 }
-table input {
+.stock-container table input {
   text-align: center;
 }
-table th,
-table td {
+.stock-container table th,
+.stock-container table td {
   vertical-align: middle;
   width: 100px;
 }
-th.small-width {
+.stock-container th.small-width {
   width: 0px;
   text-align: center;
 }
@@ -122,13 +122,14 @@ th.small-width {
 /*---------------------------------------------------------*/
 /* results section styles */
 #results {
+	display: none;
         grid-template-rows: min-content 1fr;
         grid-gap: 10px;
         height: 100%;
 }
 #results .top-detail-row {
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 300px 2fr;
         grid-gap: 10px;
 }
 #results .top-detail-row .section-title-pagination {
@@ -169,8 +170,7 @@ th.small-width {
 
 #results .bottom-detail-row {
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-gap: 10px;
+        grid-template-columns: 300px 1fr;
         overflow-y: auto;
 }
 #results .bottom-detail-row .steel-table-div {
@@ -185,6 +185,9 @@ th.small-width {
 #results .bottom-detail-row .steel-table-div .layout-table {
         overflow-y: scroll;
 }
+#results .bottom-detail-row .steel-table-div .layout-table table {
+	width: 285px;
+}
 #results .bottom-detail-row .layout-patterns {
         display: grid;
         grid-template-rows: min-content 1fr;
@@ -193,6 +196,20 @@ th.small-width {
 }
 #results .bottom-detail-row .layout-patterns .layouts {
         overflow-y: scroll;
+}
+
+#results .bottom-detail-row .layout-patterns .layouts table {
+	width: 98%;
+	height: 25px;
+	margin: auto;
+	color: white;
+	text-align: center;
+	margin-bottom: 10px;
+	border: 1px solid black;
+}
+#results .bottom-detail-row .layout-patterns .layouts table td{
+	border: 0px;
+	border-right: 1px dotted white;
 }
 /*---------------------------------------------------------*/
 .c1_r1 {

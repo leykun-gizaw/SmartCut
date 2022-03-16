@@ -12,7 +12,7 @@
   <title>Smart Cut</title>
 </head>
 
-<body class="lh-sm">
+<body>
   <header>
     <nav class="navbar navbar-dark bg-dark">
       <img class="logo" src="assets/smartcut_logo.png" />
@@ -27,7 +27,7 @@
           <a class="nav-link text-light" href="#" onclick="changeSection();">Factors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#" onclick="changeSection();">Result</a>
+          <a id="resultTab" class="nav-link text-light" href="#" onclick="changeSection();">Result</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" href="#" onclick="changeSection();">Scrap</a>
@@ -157,7 +157,7 @@
       <div class="section_bottom">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <button id="addTable" type="button" class="btn btn-outline-primary btn-sm">Add Table</button>
-          <button type="button" class="btn btn-outline-danger btn-sm">Solve</button>
+          <button type="button" id="solve" class="btn btn-outline-danger btn-sm">Solve</button>
         </div>
       </div>
     </section>
@@ -168,21 +168,7 @@
         <div class="section-title-pagination">
           <h4 class="fw-light">Result</h4>
           <nav class="nav_results" aria-label="navigate results">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
+            <ul id="resultsUL" class="pagination">
             </ul>
           </nav>
         </div>
@@ -195,7 +181,7 @@
               </tr>
               <tr>
                 <th scope="row">Number of Layouts</th>
-                <td><span>3</span></td>            
+                <td><span>3</span></td>
               </tr>
               <tr>
                 <th scope="row">Scrap %</th>
@@ -203,36 +189,30 @@
               </tr>
             </tbody>
           </table>
-          <button type="button" class="btn btn-outline-success">Export Results</button>
+          <button type="button" class="btn btn-success btn-sm">
+            Export Results <i class="fas fa-file-export"></i>
+          </button>
         </div>
       </div>
       <div class="bottom-detail-row">
         <div class="steel-table-div">
           <div class="steel-name-container">
             <div class="line"></div>
-            <h5 class="fw-light">Rectangular Holo Section</h5>
+            <h5 id="tableDescription" class="fw-light"></h5>
             <div class="line"></div>
           </div>
           <div class="layout-table">
-            <table class="table table-bordered text-center">
+            <table id="layoutTable" class="table table-bordered text-center">
               <thead class="table-light">
                 <tr>
                   <th scope="col">Stock #</th>
-                  <th scope="col">Cut #</th>
                   <th scope="col">Length</th>
                   <th scope="col">Count</th>
                   <th scope="col">ID</th>
                 </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row"><span>1</span></td>
-                    <td scope="row"><span>2</span></td>
-                    <td scope="row"><span>1125 cm</span></td>
-                    <td scope="row"><span>4</span></td>
-                    <td scope="row"> <span class="cut-color-id"></span></td>
-                  </tr>
-                </tbody>
+              </thead>
+              <tbody>
+              </tbody>
             </table>
           </div>
         </div>
@@ -242,22 +222,7 @@
             <h5 class="fw-light">Layouts</h5>
             <div class="line"></div>
           </div>
-          <div class="layouts">
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
-            <div style="border: 1px solid black; height: 30px; width: 100%; margin: 10px 0px;"></div>
+          <div id="layouts" class="layouts">
           </div>
         </div>
       </div>
@@ -265,5 +230,7 @@
     <!--*******************END OF RESULTS SECTION**********************-->
   </div>
   <script src="js/script.js"></script>
+  <script src="js/visualize.js"></script>
+  <script src="../eel.js"></script>
 </body>
 </html>
