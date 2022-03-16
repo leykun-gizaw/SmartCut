@@ -1,6 +1,6 @@
 /* Remove Stock table records when delete button is clicked */
 function rowRemove() {
-  event.target.parentNode.parentNode.remove();
+  event.target.parentNode.parentNode.parentNode.remove();
 }
 
 /* Highlight Projects on aside when clicked on */
@@ -71,7 +71,7 @@ addStockRow.addEventListener('click', () => {
   const stockTable = document.querySelector('#stockTable');
   stockTable.lastElementChild.insertAdjacentHTML(
     'afterend',
-    '<tr><th scope="row" class="small-width">3</th><td><input type="number" class="form-control" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><input type="number" class="form-control" placeholder="000" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style="width: 60px"><option selected>cm</option><option value="1">mm</option><option value="2">m</option></select></div></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style = "width: 60px;"><option selected>ETB</option><option value="1">€</option><option value="2">$</option></select></div></td><td style="text-align: center"><button type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete Record <i class="fas fa-trash-alt"></i></button></td></tr>'
+    '<tr><th scope="row" class="small-width">3</th><td><input type="text" class="form-control" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><input type="number" class="form-control" placeholder="000" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style="width: 60px"><option selected>cm</option><option value="1">mm</option><option value="2">m</option></select></div></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style = "width: 60px;"><option selected>ETB</option><option value="1">€</option><option value="2">$</option></select></div></td><td class="buttonsCell" style="text-align: center"><a href="#" class="link-primary fw-bold"><i class="fas fa-edit fa-2x"></i></a><a href="#" class="link-success fw-bold"><i class="fas fa-save fa-2x"></i></a> <a href="#" class="link-danger fw-bold" id="deleteBtn" onclick="rowRemove();"><i class="fas fa-trash-alt fa-2x"></i></a></td></tr>'
   );
 });
 

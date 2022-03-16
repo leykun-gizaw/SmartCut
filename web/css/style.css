@@ -62,6 +62,13 @@ div.dates_info p {
   width: 0px;
   text-align: center;
 }
+.stock-container table .buttonsCell {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 20px;
+        padding: 6px 0px;
+        margin: auto;
+}
 
 /* Project Add styles */
 #addProject {
@@ -74,7 +81,7 @@ div.dates_info p {
 /* Stock Table styles */
 #stock {
 	display: grid;
-	grid-template-rows: 1fr min-content;
+	grid-template-rows: min-content 1fr min-content;
 	grid-row-gap: 10px;
 	height: 100%;
 }
@@ -123,7 +130,7 @@ div.dates_info p {
 /* results section styles */
 #results {
 	display: none;
-        grid-template-rows: min-content 1fr;
+        grid-template-rows: 80px 1fr min-content;
         grid-gap: 10px;
         height: 100%;
 }
@@ -210,6 +217,9 @@ div.dates_info p {
 #results .bottom-detail-row .layout-patterns .layouts table td{
 	border: 0px;
 	border-right: 1px dotted white;
+}
+#results .bottom-buttons-row {
+        border-top: 1px solid #ccc;
 }
 /*---------------------------------------------------------*/
 .c1_r1 {

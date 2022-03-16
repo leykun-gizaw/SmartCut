@@ -88,6 +88,11 @@
   <div id="sections">
     <!----------------------STOCK SECTION-------------------------->
     <section id="stock">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a id="addStockRow" class="btn btn-primary btn-sm">
+          Add Record <i class="fas fa-plus-square fa-sm"></i>
+        </a>
+      </div>
       <div class="stock-container">
         <table class="table table-sm table-hover">
           <caption class="caption-top">Stock Records</caption>
@@ -123,7 +128,7 @@
               <td>
                 <div class="input-group" style="margin: auto;">
                   <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2" style="width: 80px;">
+                    aria-describedby="basitext-addon2" style="width: 80px;">
                   <select class="table-select form-select" aria-label="stckLength">
                     <option selected>ETB</option>
                     <option value="1">€</option>
@@ -131,17 +136,20 @@
                   </select>
                 </div>
               </td>
-              <td style="text-align: center">
-                <button id="editBtn" type="button" class="btn btn-outline-primary fw-bold btn-sm">Save <i class="fas fa-save"></i></button>
-                <button id="deleteBtn" type="button" class="btn btn-outline-danger fw-bold btn-sm" onclick="rowRemove();">Delete <i class="fas fa-trash-alt"></i></button>
+              <td class="buttonsCell" style="text-align: center">
+                <a href="#" class="link-primary fw-bold"><i class="fas fa-edit fa-2x"></i></a>
+                <a href="#" class="link-success fw-bold"><i class="fas fa-save fa-2x"></i></a>
+                <a href="#" class="link-danger fw-bold" id="deleteBtn" onclick="rowRemove();"><i class="fas fa-trash-alt fa-2x"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <a id="addStockRow" class="btn btn-primary">
-        <i class="fas fa-plus fa-sm"></i>
-      </a>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a id="commitRecord" class="btn btn-warning btn-sm">
+          Commit Record <i class="fas fa-database fa-sm"></i>
+        </a>
+      </div>
     </section>
     <!--*******************END OF STOCK SECTION**********************-->
     <!----------------------CUT LIST SECTION--------------------------->
@@ -149,15 +157,15 @@
       <div class="section_top">
         <div class="input-group">
           <input type="file" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-          <button class="btn btn-outline-success btn-sm" type="button" id="inputGroupFileAddon04">Tabulate <i class="fas fa-table"></i></button>
+          <button class="btn btn-success btn-sm" type="button" id="inputGroupFileAddon04">Tabulate <i class="fas fa-table"></i></button>
         </div>
       </div>
       <div id="midSection" class="section_middle text-light">
       </div>
       <div class="section_bottom">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button id="addTable" type="button" class="btn btn-outline-primary btn-sm">Add Table</button>
-          <button type="button" id="solve" class="btn btn-outline-danger btn-sm">Solve</button>
+          <button id="addTable" type="button" class="btn btn-primary btn-sm">Add Table <i class="fas fa-table"></i></button>
+          <button type="button" id="solve" class="btn btn-danger btn-sm">Solve <i class="fas fa-calculator"></i></button>
         </div>
       </div>
     </section>
@@ -189,7 +197,7 @@
               </tr>
             </tbody>
           </table>
-          <button type="button" class="btn btn-success btn-sm">
+          <button id="exportResults" type="button" class="btn btn-outline-success btn-sm" onclick="printDiv();">
             Export Results <i class="fas fa-file-export"></i>
           </button>
         </div>
@@ -226,11 +234,16 @@
           </div>
         </div>
       </div>
+      <div class="bottom-buttons-row d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-warning btn-sm oust">Oust From Stock <i class="fas fa-minus-circle"></i></button>
+        <button type="button" id="solve" class="btn btn-primary btn-sm save">Save Project <i class="fas fa-save"></i></button>
+      </div>
     </section>
     <!--*******************END OF RESULTS SECTION**********************-->
   </div>
   <script src="js/script.js"></script>
   <script src="js/visualize.js"></script>
+  <script src="js/export.js"></script>
   <script src="../eel.js"></script>
 </body>
 </html>
