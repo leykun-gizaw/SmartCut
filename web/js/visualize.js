@@ -21,6 +21,13 @@ function makeResultTable (patternObject) {
         );
         data.innerHTML = detail;
         row.append(data);
+        data = maker('td');
+        data.setAttribute(
+          'rowspan',
+          `${uniqCuts.length}`
+        );
+        data.innerHTML = '';
+        row.append(data);
       }
       data = maker('td');
       data.innerHTML = uniqCuts[i];
@@ -98,6 +105,7 @@ function showTable () {
       layoutTable,
       steelTypes[Number(event.target.innerText) - 1]
     );
+    updateSummary();
   }
 }
 
@@ -124,7 +132,17 @@ function tabulateResult (layoutTable, tableDescription, rowsArr = '') {
 
 /*---------------------------------------------------------------------------*/
 
-
+function updateSummary () {
+  const summaryTable = document.getElementById('summary');
+  const layoutTable = document.getElementById('layoutTable');
+  let stkCount = 0;
+  let totalCutsLength = 0;
+  for (let i = 0; i < layoutTable.lastElementChild.childElementCount; i++) {
+    if (layoutTable.lastElementChild.children[i].firstElementChild.hasAttribute('rowspan')) {
+      stkCount++;
+    }
+  }
+}
 
 /*---------------------------------------------------------------------------*/
 
@@ -140,6 +158,7 @@ function layoutResult() {
   for (let i = 0; i < child.childElementCount; i++) {
     if (child.children[i].firstChild.hasAttribute('rowspan')) {
       if (i !== 0) {
+        //addScrapData(tr, child.children[i - 1]);
         tr.append(document.createElement('td'));
         tbody.append(tr);
         table.append(tbody);
@@ -148,11 +167,11 @@ function layoutResult() {
       table = document.createElement('table');
       tr = document.createElement('tr');
       tbody = document.createElement('tbody');
-      for (let j = 0; j < Number(child.children[i].children[2].innerText); j++) {
+      for (let j = 0; j < Number(child.children[i].children[3].innerText); j++) {
         const td = document.createElement('td');
-        td.style.backgroundColor = child.children[i].children[3].style.backgroundColor;
-        td.style.width = String((Number(child.children[i].children[1].innerText) / 6000) * 100) + '%';
-        td.innerHTML = `<small>${child.children[i].children[1].innerText}</small>`;
+        td.style.backgroundColor = child.children[i].children[4].style.backgroundColor;
+        td.style.width = String((Number(child.children[i].children[2].innerText) / 6000) * 100) + '%';
+        td.innerHTML = `<small>${child.children[i].children[2].innerText}</small>`;
         tr.append(td);
       }
     } else {
@@ -165,5 +184,16 @@ function layoutResult() {
       }
     }
   }
+  tr.append(document.createElement('td'));
+  tbody.append(tr);
+  table.append(tbody);
+  layouts.append(table);
 }
+/*---------------------------------------------------------------------------*/
+
+function addScrapData (tableRow, child) {
+  let prevSibling = child.previousElementSibling;
+  console.log(prevSibling);
+}
+
 /*---------------------------------------------------------------------------*/
