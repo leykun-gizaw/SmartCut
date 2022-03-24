@@ -34,6 +34,11 @@ function childArray (...arr) {
     const obj = new TreeNode(elementMaker(arr[i].elem));
     if (arr[i].classList !== []) obj.element.classList.add(...arr[i].classList);
     if (arr[i].content !== '') obj.element.innerText = arr[i].content;
+    if (arr[i].attribs) {
+      for (const prop in arr[i].attribs) {
+        obj.element.setAttribute(prop, arr[i].attribs[prop]);
+      }
+    }
     children.push(obj);
   }
   // Return children array
