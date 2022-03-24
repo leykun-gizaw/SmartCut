@@ -1,4 +1,4 @@
-import { elementMaker, TreeNode, childArray } from './utilities.js';
+import { elementMaker, TreeNode, childArray, makeNodeTree } from './utilities.js';
 
 /**
   * Function Creates Tree structure for projects fetched form database. Root
@@ -67,6 +67,51 @@ function makeProjectCard (project, customer, began, ends) {
   );
   // Return projectCard tree structure
   return projectCard;
+}
+
+/* Add project to aside Element when 'Add Project' button is clicked */
+const addProject = document.getElementById('addProject');
+addProject.addEventListener('click', () => {
+  const collapseOne = document.getElementById('collapseOne');
+  const collapseInputChildren =
+    collapseOne.children[0].children[0].childElementCount;
+  const projectValues = [];
+  let missing = false;
+  for (let i = 0; i < collapseInputChildren - 1; i++) {
+    projectValues.push(
+      collapseOne
+        .children[0]
+        .children[0]
+        .children[i]
+        .children[0]
+        .children[0]
+        .value
+    );
+  }
+  for (let i = 0; i < projectValues.length; i++) {
+    if (projectValues[i] === '') {
+      missing = true;
+    }
+  }
+  const projectLinks = document.getElementById('proj-links');
+  if (!missing && projectValues[2] < projectValues[3]) {
+    const projectCard = makeProjectCard(
+      projectValues[0], projectValues[1], projectValues[2], projectValues[3]
+    );
+    projectLinks.append(makeNodeTree(projectCard).element);
+    for (let i = 0; i < projectLinks.childElementCount; i++) {
+      projectLinks.children[i].addEventListener('click', asideHighlight);
+    }
+  }
+});
+
+/* Highlight Projects on aside when clicked on */
+function asideHighlight (e) {
+  const projectLinks = document.getElementById('proj-links');
+  for (let i = 0; i < projectLinks.childElementCount; i++) {
+    projectLinks.children[i].classList.remove('active');
+  }
+  e.currentTarget.classList.add('active');
 }
 
 export { makeProjectCard };

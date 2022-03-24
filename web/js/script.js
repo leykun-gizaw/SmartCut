@@ -4,20 +4,8 @@ import {
   tabulateResult,
   layoutResult
 } from './visualize.js';
-import { makeProjectCard } from './aside.js';
-import { makeNodeTree } from './utilities.js';
-
-/* Highlight Projects on aside when clicked on */
-function asideHighlight (e) {
-  const projectLinks = document.getElementById('proj-links');
-  for (let i = 0; i < projectLinks.childElementCount; i++) {
-    projectLinks.children[i].classList.remove('active');
-  }
-  e.currentTarget.classList.add('active');
-}
 
 /* Make tabs interactive and change display property of different sections */
-
 ['stockTab', 'cutlistTab', 'factorsTab', 'resultTab'].forEach(elem => {
   document.getElementById(elem).addEventListener('click', changeSection);
 });
@@ -48,42 +36,6 @@ function displaySingleGrid (noGrid, grid) {
   }
   grid.style.display = 'grid';
 }
-
-/* Add project to aside Element when 'Add Project' button is clicked */
-const addProject = document.getElementById('addProject');
-addProject.addEventListener('click', () => {
-  const collapseOne = document.getElementById('collapseOne');
-  const collapseInputChildren =
-    collapseOne.children[0].children[0].childElementCount;
-  const projectValues = [];
-  let missing = false;
-  for (let i = 0; i < collapseInputChildren - 1; i++) {
-    projectValues.push(
-      collapseOne
-        .children[0]
-        .children[0]
-        .children[i]
-        .children[0]
-        .children[0]
-        .value
-    );
-  }
-  for (let i = 0; i < projectValues.length; i++) {
-    if (projectValues[i] === '') {
-      missing = true;
-    }
-  }
-  const projectLinks = document.getElementById('proj-links');
-  if (!missing && projectValues[2] < projectValues[3]) {
-    const projectCard = makeProjectCard(
-      projectValues[0], projectValues[1], projectValues[2], projectValues[3]
-    );
-    projectLinks.append(makeNodeTree(projectCard).element);
-    for (let i = 0; i < projectLinks.childElementCount; i++) {
-      projectLinks.children[i].addEventListener('click', asideHighlight);
-    }
-  }
-});
 
 /* Cut List table adder function */
 function addTableFunc () {
