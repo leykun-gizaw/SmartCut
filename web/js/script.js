@@ -31,13 +31,13 @@ function changeSection (e) {
       }
     }
     e.currentTarget.classList.add('active');
-    const sections = document.getElementById('sections');
+    const sec = document.getElementById('sections');
     if (e.currentTarget.innerText === 'Stock') {
-      displaySingleGrid([sections.children[1], sections.children[2]], sections.children[0]);
+      displaySingleGrid([sec.children[1], sec.children[2]], sec.children[0]);
     } else if (e.currentTarget.innerText === 'Cut List') {
-      displaySingleGrid([sections.children[0], sections.children[2]], sections.children[1]);
+      displaySingleGrid([sec.children[0], sec.children[2]], sec.children[1]);
     } else if (e.currentTarget.innerText === 'Result') {
-      displaySingleGrid([sections.children[0], sections.children[1]], sections.children[2]);
+      displaySingleGrid([sec.children[0], sec.children[1]], sec.children[2]);
     }
   }
 }
@@ -58,7 +58,12 @@ addProject.addEventListener('click', () => {
   let missing = false;
   for (let i = 0; i < collapseInputChildren - 1; i++) {
     projectValues.push(
-      collapseOne.children[0].children[0].children[i].children[0].children[0]
+      collapseOne
+        .children[0]
+        .children[0]
+        .children[i]
+        .children[0]
+        .children[0]
         .value
     );
   }
