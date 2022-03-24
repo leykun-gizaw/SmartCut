@@ -82,7 +82,6 @@ class Steel:
                 1,
                 'y[{}]'.format(j)
             )
-        print(self.y)
         return None
 
     def constraints(self):

@@ -1,9 +1,5 @@
-const solveBtn = document.querySelector('#solve');
-
-/*---------------------------------------------------------------------------*/
-function maker (elem) {
-  return document.createElement(elem);
-}
+import { elementMaker } from './utilities.js';
+import { resultTables } from './script.js';
 
 function makeResultTable (patternObject) {
   const tr = [];
@@ -12,16 +8,16 @@ function makeResultTable (patternObject) {
   for (const detail in patternObject) {
     const uniqCuts = [...new Set(patternObject[detail].cuts)];
     for (const i in uniqCuts) {
-      row = maker('tr');
+      row = elementMaker('tr');
       if (i === '0') {
-        data = maker('td');
+        data = elementMaker('td');
         data.setAttribute(
           'rowspan',
           `${uniqCuts.length}`
         );
         data.innerHTML = detail;
         row.append(data);
-        data = maker('td');
+        data = elementMaker('td');
         data.setAttribute(
           'rowspan',
           `${uniqCuts.length}`
@@ -29,14 +25,14 @@ function makeResultTable (patternObject) {
         data.innerHTML = '';
         row.append(data);
       }
-      data = maker('td');
+      data = elementMaker('td');
       data.innerHTML = uniqCuts[i];
       row.append(data);
       const count = countOccurance(patternObject[detail].cuts, uniqCuts[i]);
-      data = maker('td');
+      data = elementMaker('td');
       data.innerHTML = count;
       row.append(data);
-      data = maker('td');
+      data = elementMaker('td');
       data.style.backgroundColor = randomColor();
       row.append(data);
       tr.push(row);
@@ -64,21 +60,17 @@ function randomColor () {
   }
   return color;
 }
-/*---------------------------------------------------------------------------*/
 
-
-/* Reconstruct the result pagination */
-/*---------------------------------------------------------------------------*/
 function paginateResult (pages) {
   const resultsUL = document.querySelector('#resultsUL');
   resultsUL.innerHTML = '<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
 
   for (let i = 0; i < pages; i++) {
-    const li = document.createElement('li');
-    const btn = document.createElement('button');
+    const li = elementMaker('li');
+    const btn = elementMaker('button');
     li.classList.add('page-item');
 
-    btn.setAttribute('onclick', 'showTable();');
+    btn.addEventListener('click', showTable);
     btn.classList.add('page-link');
     btn.innerHTML = i + 1;
     li.append(btn);
@@ -90,20 +82,16 @@ function paginateResult (pages) {
     );
   }
 }
-/*---------------------------------------------------------------------------*/
 
-
-
-/*---------------------------------------------------------------------------*/
-function showTable () {
+function showTable (e) {
   const layoutTable = document.querySelector('#layoutTable');
   document.querySelector('#layouts').textContent = '';
   layoutTable.lastElementChild.textContent = '';
-  if (!event.target.parentNode.classList.contains('active')) {
+  if (!e.currentTarget.parentNode.classList.contains('active')) {
     const steelTypes = Object.keys(resultTables);
     tabulateResult(
       layoutTable,
-      steelTypes[Number(event.target.innerText) - 1]
+      steelTypes[Number(e.currentTarget.innerText) - 1]
     );
     updateSummary();
   }
@@ -111,7 +99,6 @@ function showTable () {
 
 function tabulateResult (layoutTable, tableDescription, rowsArr = '') {
   const steelTypes = Object.keys(resultTables);
-
   document.querySelector('#tableDescription').innerHTML = tableDescription;
   if (rowsArr === '') {
     rowsArr = resultTables[
@@ -127,10 +114,6 @@ function tabulateResult (layoutTable, tableDescription, rowsArr = '') {
   });
   event.target.parentNode.classList.add('active');
 }
-/*---------------------------------------------------------------------------*/
-
-
-/*---------------------------------------------------------------------------*/
 
 function updateSummary () {
   const summaryTable = document.getElementById('summary');
@@ -144,11 +127,7 @@ function updateSummary () {
   }
 }
 
-/*---------------------------------------------------------------------------*/
-
-
-/*---------------------------------------------------------------------------*/
-function layoutResult() {
+function layoutResult () {
   const layoutsTable = document.getElementById('layoutTable');
   const layouts = document.getElementById('layouts');
   const child = layoutsTable.lastElementChild;
@@ -158,17 +137,17 @@ function layoutResult() {
   for (let i = 0; i < child.childElementCount; i++) {
     if (child.children[i].firstChild.hasAttribute('rowspan')) {
       if (i !== 0) {
-        //addScrapData(tr, child.children[i - 1]);
-        tr.append(document.createElement('td'));
+        // addScrapData(tr, child.children[i - 1]);
+        tr.append(elementMaker('td'));
         tbody.append(tr);
         table.append(tbody);
         layouts.append(table);
       }
-      table = document.createElement('table');
-      tr = document.createElement('tr');
-      tbody = document.createElement('tbody');
+      table = elementMaker('table');
+      tr = elementMaker('tr');
+      tbody = elementMaker('tbody');
       for (let j = 0; j < Number(child.children[i].children[3].innerText); j++) {
-        const td = document.createElement('td');
+        const td = elementMaker('td');
         td.style.backgroundColor = child.children[i].children[4].style.backgroundColor;
         td.style.width = String((Number(child.children[i].children[2].innerText) / 6000) * 100) + '%';
         td.innerHTML = `<small>${child.children[i].children[2].innerText}</small>`;
@@ -176,7 +155,7 @@ function layoutResult() {
       }
     } else {
       for (let k = 0; k < Number(child.children[i].children[1].innerText); k++) {
-        const td = document.createElement('td');
+        const td = elementMaker('td');
         td.style.backgroundColor = child.children[i].children[2].style.backgroundColor;
         td.style.width = String((Number(child.children[i].children[0].innerText) / 6000) * 100) + '%';
         td.innerHTML = `<small>${child.children[i].children[0].innerText}</small>`;
@@ -184,16 +163,22 @@ function layoutResult() {
       }
     }
   }
-  tr.append(document.createElement('td'));
+  tr.append(elementMaker('td'));
   tbody.append(tr);
   table.append(tbody);
   layouts.append(table);
 }
-/*---------------------------------------------------------------------------*/
 
 function addScrapData (tableRow, child) {
   let prevSibling = child.previousElementSibling;
   console.log(prevSibling);
 }
 
-/*---------------------------------------------------------------------------*/
+export {
+  makeResultTable,
+  paginateResult,
+  showTable,
+  addScrapData,
+  tabulateResult,
+  layoutResult
+};
