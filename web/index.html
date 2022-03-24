@@ -18,7 +18,7 @@
       <img class="logo" src="assets/smartcut_logo.png" />
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a id="stockTab" class="nav-link active" aria-current="page" href="#">Stock</a>
+          <a id="stockTab" class="nav-link active" href="#">Stock</a>
         </li>
         <li class="nav-item">
           <a id="cutlistTab" class="nav-link text-light" href="#">Cut List</a>
@@ -37,12 +37,11 @@
     <div class="accordion" id="accordionExample">
       <div class="accordion-item" style="border-bottom: 2px solid #eee;">
         <h2 class="accordion-header">
-          <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
             <span class="text-primary">ADD PROJECT</span>
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-          data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse show">
           <div class="accordion-body">
             <div class="row">
               <div class="col">
@@ -94,11 +93,11 @@
         </a>
       </div>
       <div class="stock-container">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-bordered">
           <caption class="caption-top">Stock Records</caption>
           <thead class="table-light">
             <tr style="text-align: center">
-              <th scope="col" class="small-width">No_</th>
+              <th scope="col">No_</th>
               <th scope="col">Steel Type</th>
               <th scope="col">Quantity</th>
               <th scope="col">Length</th>
@@ -109,16 +108,14 @@
           <tbody id="stockTable">
             <tr>
               <th scope="row" class="small-width">1</th>
-              <td>Rectangular Holo Section</td>
+              <td>RHS</td>
               <td>
-                <input type="number" class="form-control" placeholder="000" aria-label="Recipient's username"
-                  aria-describedby="basic-addon2">
+                <input type="number" class="form-control form-control-sm" value="111" disabled>
               </td>
               <td>
-                <div class="input-group" style="margin: auto;">
-                  <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2" style="width: 80px; height: 30px;">
-                  <select class="table-select form-select" aria-label="stckLength">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" value="6000.00" disabled>
+                  <select class="table-select form-select form-select-sm">
                     <option selected>cm</option>
                     <option value="1">mm</option>
                     <option value="2">m</option>
@@ -126,20 +123,27 @@
                 </div>
               </td>
               <td>
-                <div class="input-group" style="margin: auto;">
-                  <input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient's username"
-                    aria-describedby="basitext-addon2" style="width: 80px;">
-                  <select class="table-select form-select" aria-label="stckLength">
+                <div class="input-group input-group-sm" style="margin: auto;">
+                  <input type="text" class="table-input form-control" value="234.45" disabled>
+                  <select class="table-select form-select form-select-sm">
                     <option selected>ETB</option>
                     <option value="1">€</option>
                     <option value="2">$</option>
                   </select>
                 </div>
               </td>
-              <td class="buttonsCell" style="text-align: center">
-                <a href="#" class="link-primary fw-bold"><i class="fas fa-edit fa-2x"></i></a>
-                <a href="#" class="link-success fw-bold"><i class="fas fa-save fa-2x"></i></a>
-                <a href="#" class="link-danger fw-bold" id="deleteBtn"><i class="fas fa-trash-alt fa-2x"></i></a>
+              <td>
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-edit fa-sm"></i>
+                  </button>
+                  <button type="button" class="btn btn-warning">
+                    <i class="fas fa-save fa-sm"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger" id="deleteBtn">
+                    <i class="fas fa-trash fa-sm"></i>
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -156,7 +160,7 @@
     <section id="cutlist">
       <div class="section_top">
         <div class="input-group">
-          <input type="file" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+          <input type="file" class="form-control form-control-sm" id="inputGroupFile04">
           <button class="btn btn-success btn-sm" type="button" id="inputGroupFileAddon04">Tabulate <i class="fas fa-table"></i></button>
         </div>
       </div>
@@ -175,7 +179,7 @@
       <div class="top-detail-row">
         <div class="section-title-pagination">
           <h4 class="fw-light">Result</h4>
-          <nav class="nav_results" aria-label="navigate results">
+          <nav class="nav_results">
             <ul id="resultsUL" class="pagination">
             </ul>
           </nav>
