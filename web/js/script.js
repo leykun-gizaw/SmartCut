@@ -16,15 +16,10 @@ function asideHighlight (e) {
 }
 
 /* Make tabs interactive and change display property of different sections */
-const stockTab = document.getElementById('stockTab');
-const cutlistTab = document.getElementById('cutlistTab');
-const factorsTab = document.getElementById('factorsTab');
-const resultTab = document.getElementById('resultTab');
 
-stockTab.addEventListener('click', changeSection);
-cutlistTab.addEventListener('click', changeSection);
-factorsTab.addEventListener('click', changeSection);
-resultTab.addEventListener('click', changeSection);
+['stockTab', 'cutlistTab', 'factorsTab', 'resultTab'].forEach(elem => {
+  document.getElementById(elem).addEventListener('click', changeSection);
+});
 
 function changeSection (e) {
   const tabsUL = e.currentTarget.parentNode.parentNode;
