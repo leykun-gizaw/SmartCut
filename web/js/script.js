@@ -4,7 +4,8 @@ import {
   tabulateResult,
   layoutResult
 } from './visualize.js';
-import { makeProjectCardTree, makeProjectCard } from './aside.js';
+import { makeProjectCard } from './aside.js';
+import { makeNodeTree } from './utilities.js';
 
 /* Highlight Projects on aside when clicked on */
 function asideHighlight (e) {
@@ -77,21 +78,11 @@ addProject.addEventListener('click', () => {
     const projectCard = makeProjectCard(
       projectValues[0], projectValues[1], projectValues[2], projectValues[3]
     );
-    projectLinks.append(makeProjectCardTree(projectCard).element);
+    projectLinks.append(makeNodeTree(projectCard).element);
     for (let i = 0; i < projectLinks.childElementCount; i++) {
       projectLinks.children[i].addEventListener('click', asideHighlight);
     }
   }
-});
-
-/* Handle the click event on the button located below stock table */
-const addStockRow = document.getElementById('addStockRow');
-addStockRow.addEventListener('click', () => {
-  const stockTable = document.getElementById('stockTable');
-  stockTable.lastElementChild.insertAdjacentHTML(
-    'afterend',
-    '<tr><th scope="row" class="small-width">3</th><td><input type="text" class="form-control" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><input type="number" class="form-control" placeholder="000" aria-label="Recipient\'s username" aria-describedby="basic-addon2"></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style="width: 60px"><option selected>cm</option><option value="1">mm</option><option value="2">m</option></select></div></td><td><div class="input-group" style="margin: auto;"><input type="text" class="table-input form-control" placeholder="0.00" aria-label="Recipient\'s username" aria-describedby="basic-addon2" style="width: 80px;"><select class="table-select form-select" aria-label="stckLength" style = "width: 60px;"><option selected>ETB</option><option value="1">€</option><option value="2">$</option></select></div></td><td class="buttonsCell" style="text-align: center"><a href="#" class="link-primary fw-bold"><i class="fas fa-edit fa-2x"></i></a><a href="#" class="link-success fw-bold"><i class="fas fa-save fa-2x"></i></a> <a href="#" class="link-danger fw-bold" id="deleteBtn" onclick="rowRemove();"><i class="fas fa-trash-alt fa-2x"></i></a></td></tr>'
-  );
 });
 
 /* Cut List table adder function */
