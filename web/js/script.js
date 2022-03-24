@@ -6,12 +6,6 @@ import {
 } from './visualize.js';
 import { makeProjectCardTree, makeProjectCard } from './aside.js';
 
-/* Remove Stock table records when delete button is clicked */
-const deleteBtn = document.getElementById('deleteBtn');
-deleteBtn.addEventListener('click', (e) => {
-  e.currentTarget.parentNode.parentNode.remove();
-});
-
 /* Highlight Projects on aside when clicked on */
 function asideHighlight (e) {
   const projectLinks = document.getElementById('proj-links');
@@ -44,19 +38,19 @@ function changeSection (e) {
     e.currentTarget.classList.add('active');
     const sections = document.getElementById('sections');
     if (e.currentTarget.innerText === 'Stock') {
-      sections.children[0].style.display = 'grid';
-      sections.children[1].style.display = 'none';
-      sections.children[2].style.display = 'none';
+      displaySingleGrid([sections.children[1], sections.children[2]], sections.children[0]);
     } else if (e.currentTarget.innerText === 'Cut List') {
-      sections.children[0].style.display = 'none';
-      sections.children[1].style.display = 'grid';
-      sections.children[2].style.display = 'none';
+      displaySingleGrid([sections.children[0], sections.children[2]], sections.children[1]);
     } else if (e.currentTarget.innerText === 'Result') {
-      sections.children[0].style.display = 'none';
-      sections.children[1].style.display = 'none';
-      sections.children[2].style.display = 'grid';
+      displaySingleGrid([sections.children[0], sections.children[1]], sections.children[2]);
     }
   }
+}
+function displaySingleGrid (noGrid, grid) {
+  for (let i = 0; i < noGrid.length; i++) {
+    noGrid[i].style.display = 'none';
+  }
+  grid.style.display = 'grid';
 }
 
 /* Add project to aside Element when 'Add Project' button is clicked */
