@@ -1,4 +1,4 @@
-import { elementMaker } from './utilities.js';
+import { elmMake } from './utilities.js';
 import { resultTables } from './script.js';
 
 function makeResultTable (patternObject) {
@@ -8,16 +8,16 @@ function makeResultTable (patternObject) {
   for (const detail in patternObject) {
     const uniqCuts = [...new Set(patternObject[detail].cuts)];
     for (const i in uniqCuts) {
-      row = elementMaker('tr');
+      row = elmMake('tr');
       if (i === '0') {
-        data = elementMaker('td');
+        data = elmMake('td');
         data.setAttribute(
           'rowspan',
           `${uniqCuts.length}`
         );
         data.innerHTML = detail;
         row.append(data);
-        data = elementMaker('td');
+        data = elmMake('td');
         data.setAttribute(
           'rowspan',
           `${uniqCuts.length}`
@@ -25,14 +25,14 @@ function makeResultTable (patternObject) {
         data.innerHTML = '';
         row.append(data);
       }
-      data = elementMaker('td');
+      data = elmMake('td');
       data.innerHTML = uniqCuts[i];
       row.append(data);
       const count = countOccurance(patternObject[detail].cuts, uniqCuts[i]);
-      data = elementMaker('td');
+      data = elmMake('td');
       data.innerHTML = count;
       row.append(data);
-      data = elementMaker('td');
+      data = elmMake('td');
       data.style.backgroundColor = randomColor();
       row.append(data);
       tr.push(row);
@@ -66,8 +66,8 @@ function paginateResult (pages) {
   resultsUL.innerHTML = '<li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
 
   for (let i = 0; i < pages; i++) {
-    const li = elementMaker('li');
-    const btn = elementMaker('button');
+    const li = elmMake('li');
+    const btn = elmMake('button');
     li.classList.add('page-item');
 
     btn.addEventListener('click', showTable);
@@ -138,16 +138,16 @@ function layoutResult () {
     if (child.children[i].firstChild.hasAttribute('rowspan')) {
       if (i !== 0) {
         // addScrapData(tr, child.children[i - 1]);
-        tr.append(elementMaker('td'));
+        tr.append(elmMake('td'));
         tbody.append(tr);
         table.append(tbody);
         layouts.append(table);
       }
-      table = elementMaker('table');
-      tr = elementMaker('tr');
-      tbody = elementMaker('tbody');
+      table = elmMake('table');
+      tr = elmMake('tr');
+      tbody = elmMake('tbody');
       for (let j = 0; j < Number(child.children[i].children[3].innerText); j++) {
-        const td = elementMaker('td');
+        const td = elmMake('td');
         td.style.backgroundColor = child.children[i].children[4].style.backgroundColor;
         td.style.width = String((Number(child.children[i].children[2].innerText) / 6000) * 100) + '%';
         td.innerHTML = `<small>${child.children[i].children[2].innerText}</small>`;
@@ -155,7 +155,7 @@ function layoutResult () {
       }
     } else {
       for (let k = 0; k < Number(child.children[i].children[1].innerText); k++) {
-        const td = elementMaker('td');
+        const td = elmMake('td');
         td.style.backgroundColor = child.children[i].children[2].style.backgroundColor;
         td.style.width = String((Number(child.children[i].children[0].innerText) / 6000) * 100) + '%';
         td.innerHTML = `<small>${child.children[i].children[0].innerText}</small>`;
@@ -163,7 +163,7 @@ function layoutResult () {
       }
     }
   }
-  tr.append(elementMaker('td'));
+  tr.append(elmMake('td'));
   tbody.append(tr);
   table.append(tbody);
   layouts.append(table);
