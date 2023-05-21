@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="fa_6.0.0/css/all.css">
+  <script src="css/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="assets/smartcut_logo.png">
+  <title>Smart Cut</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <img class="logo" src="assets/smartcut_logo.png" />
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a id="stockTab" class="nav-link active" href="#">Stock</a>
+        </li>
+        <li class="nav-item">
+          <a id="cutlistTab" class="nav-link text-light" href="#">Cut List</a>
+        </li>
+        <li class="nav-item">
+          <a id="factorsTab" class="nav-link text-light" href="#">Factors</a>
+        </li>
+        <li class="nav-item">
+          <a id="resultTab" class="nav-link text-light" href="#">Result</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Scrap</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item" style="border-bottom: 2px solid #eee;">
+        <h2 class="accordion-header">
+          <button class="accordion-button p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            <span class="text-primary">ADD PROJECT</span>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <div class="row">
+              <div class="col">
+                <form class="form-floating form-control-sm">
+                  <input type="text" class="form-control" style="height: 25px;" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Project Name</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating form-control-sm">
+                  <input type="text" class="form-control" style="height: 25px;" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Customer Name</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating form-control-sm">
+                  <input type="Date" class="form-control form-control-sm" style="height: 25px;" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Start Date</label>
+                </form>
+              </div>
+              <div class="col">
+                <form class="form-floating form-control-sm">
+                  <input type="Date" class="form-control form-control-sm" style="height: 25px;" id="floatingInputValue" value="" required>
+                  <label for="floatingInputValue">Due Date</label>
+                </form>
+              </div>
+              <div class="col" style="position: relative;">
+                <button id="addProject" class="btn btn-primary btn-sm">
+                  <span class="fw-bold">Add Project</span> <i class="fas fa-project-diagram"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <h5 class="project_history fw-light">PROJECT HISTORY</h5>
+    <div id="proj-links" class="list-group">
+    </div>
+  </aside>
+  <div id="sections">
+    <!----------------------STOCK SECTION-------------------------->
+    <section id="stock">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a id="addStockRow" class="btn btn-primary btn-sm">
+          Add Record <i class="fas fa-plus-square fa-sm"></i>
+        </a>
+      </div>
+      <div class="stock-container">
+        <table class="table table-sm table-bordered">
+          <caption class="caption-top">Stock Records</caption>
+          <thead class="table-light">
+            <tr style="text-align: center">
+              <th scope="col">No_</th>
+              <th scope="col">Steel Type</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Length</th>
+              <th scope="col">Cost per Unit Length</th>
+              <th scope="col">Manage Record</th>
+            </tr>
+          </thead>
+          <tbody id="stockTable">
+            <tr>
+              <th>1</th>
+              <td>RHS</td>
+              <td>
+                <input type="number" class="form-control form-control-sm" value="111" disabled>
+              </td>
+              <td>
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control form-control-sm" value="6000.00" disabled>
+                  <select class="form-select form-select-sm">
+                    <option selected>cm</option>
+                    <option value="1">mm</option>
+                    <option value="2">m</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div class="input-group input-group-sm" style="margin: auto;">
+                  <input type="text" class="table-input form-control" value="234.45" disabled>
+                  <select class="form-select form-select-sm">
+                    <option selected>ETB</option>
+                    <option value="1">€</option>
+                    <option value="2">$</option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-primary">
+                    <i class="fas fa-edit fa-sm"></i>
+                  </button>
+                  <button type="button" class="btn btn-warning">
+                    <i class="fas fa-save fa-sm"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger" id="deleteBtn">
+                    <i class="fas fa-trash fa-sm"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a id="commitRecord" class="btn btn-warning btn-sm">
+          Commit Record <i class="fas fa-database fa-sm"></i>
+        </a>
+      </div>
+    </section>
+    <!--*******************END OF STOCK SECTION**********************-->
+    <!----------------------CUT LIST SECTION--------------------------->
+    <section id="cutlist">
+      <div class="section_top">
+        <div class="input-group">
+          <input type="file" class="form-control form-control-sm" id="inputGroupFile04">
+          <button class="btn btn-success btn-sm" type="button" id="inputGroupFileAddon04">Tabulate <i class="fas fa-table"></i></button>
+        </div>
+      </div>
+      <div id="midSection" class="section_middle text-light">
+      </div>
+      <div class="section_bottom">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button id="addTable" type="button" class="btn btn-primary btn-sm">Add Table <i class="fas fa-table"></i></button>
+          <button type="button" id="solve" class="btn btn-danger btn-sm">Solve <i class="fas fa-calculator"></i></button>
+        </div>
+      </div>
+    </section>
+    <!--*******************END OF CUT LIST SECTION**********************-->
+    <!----------------------RESULTS SECTION--------------------------->
+    <section id="results">
+      <div class="top-detail-row">
+        <div class="section-title-pagination">
+          <h4 class="fw-light">Result</h4>
+          <nav class="nav_results">
+            <ul id="resultsUL" class="pagination">
+            </ul>
+          </nav>
+        </div>
+        <div class="summary-export-column">
+          <table id="summary" class="table table-sm">
+            <tbody>
+              <tr>
+                <th scope="row">Stock Required</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">Scrap % (<span></span> as 100%)</th>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="exportResults" type="button" class="btn btn-outline-success btn-sm" onclick="printDiv();">
+            Export Results <i class="fas fa-file-export"></i>
+          </button>
+        </div>
+      </div>
+      <div class="bottom-detail-row">
+        <div class="steel-table-div">
+          <div class="steel-name-container">
+            <div class="line"></div>
+            <h5 id="tableDescription" class="fw-light"></h5>
+            <div class="line"></div>
+          </div>
+          <div class="layout-table">
+            <table id="layoutTable" class="table table-bordered text-center">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col">Stock #</th>
+                  <th scope="col">Scrap </th>
+                  <th scope="col">Length</th>
+                  <th scope="col">Count</th>
+                  <th scope="col">ID</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="layout-patterns">
+          <div class="steel-name-container">
+            <div class="line"></div>
+            <h5 class="fw-light">Layouts</h5>
+            <div class="line"></div>
+          </div>
+          <div id="layouts" class="layouts">
+          </div>
+        </div>
+      </div>
+      <div class="bottom-buttons-row d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-warning btn-sm oust">Oust From Stock <i class="fas fa-minus-circle"></i></button>
+        <button type="button" id="solve" class="btn btn-primary btn-sm save">Save Project <i class="fas fa-save"></i></button>
+      </div>
+    </section>
+    <!--*******************END OF RESULTS SECTION**********************-->
+  </div>
+  <script type="module" src="js/script.js"></script>
+  <script type="module" src="js/visualize.js"></script>
+  <script type="module" src="js/export.js"></script>
+  <script type="module" src="js/utilities.js"></script>
+  <script type="module" src="js/aside.js"></script>
+  <script type="module" src="js/stock.js"></script>
+  <script src="../eel.js"></script>
+</body>
+</html>

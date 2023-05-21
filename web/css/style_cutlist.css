@@ -1,0 +1,39 @@
+section {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr 80px;
+}
+div.section_top {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+div.section_middle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
+  margin: 0px 60px;
+  border-right: 2px solid #eee;
+  border-left: 2px solid #eee;
+  padding: 0px 40px;
+  overflow-y: scroll;
+}
+div.section_bottom {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+button.hidden-table-delete {
+	visibility: hidden;
+}
+.c1_r1:hover button.hidden-table-delete {
+	visibility: visible;
+}
